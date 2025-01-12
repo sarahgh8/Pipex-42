@@ -1,15 +1,15 @@
 # Pipex Project Checklist
 
 ## 📝 General Guidelines
-- [ ] Ensure the project is written in C and adheres to the 42 Norm.
+- [✅] Ensure the project is written in C and adheres to the 42 Norm.
 - [ ] Avoid unexpected quits (e.g., segmentation fault, bus error, double free).
 - [ ] Handle memory management properly to avoid leaks.
-- [ ] Create and test a Makefile:
-  - [ ] Includes `NAME`, `all`, `clean`, `fclean`, and `re` rules.
-  - [ ] Uses `cc` with `-Wall`, `-Wextra`, and `-Werror` flags.
-  - [ ] Does not relink unnecessarily.
+- [✅] Create and test a Makefile:
+  - [✅] Includes `NAME`, `all`, `clean`, `fclean`, and `re` rules.
+  - [✅] Uses `cc` with `-Wall`, `-Wextra`, and `-Werror` flags.
+  - [✅] Does not relink unnecessarily.
 - [ ] Submit all required files: `Makefile`, `.c` files, `.h` files.
-- [ ] Test thoroughly to ensure compliance with requirements.
+- [✅] Test thoroughly to ensure compliance with requirements.
 
 ## 🔨 Mandatory Part Implementation
 
@@ -71,7 +71,7 @@
 - [ ] Use tests to defend your project during evaluations.
 
 ## ✅ Final Checklist
-- [ ] Compile with `make` and ensure no errors or warnings.
+- [✅] Compile with `make` and ensure no errors or warnings.
 - [ ] Pass all tests for the mandatory part.
 - [ ] Bonus features work without breaking mandatory functionality.
 - [ ] Submit to the git repository before the deadline.
