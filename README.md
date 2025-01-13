@@ -15,7 +15,7 @@
 
 ### 1️⃣ Understand Requirements
 - [ ] Program must be executable as: `./pipex file1 cmd1 cmd2 file2`.
-- [ ] Simulate the shell command: `< file1 cmd1 | cmd2 > file2`.
+- [✅] Simulate the shell command: `< file1 cmd1 | cmd2 > file2`.
 - [ ] Use only the allowed functions:
   - `open`, `close`, `read`, `write`, `malloc`, `free`, `perror`, `strerror`, `access`, `dup`, `dup2`, `execve`, `exit`, `fork`, `pipe`, `unlink`, `wait`, `waitpid`.
 
@@ -75,3 +75,59 @@
 - [ ] Pass all tests for the mandatory part.
 - [ ] Bonus features work without breaking mandatory functionality.
 - [ ] Submit to the git repository before the deadline.
+
+## 📝 VERY IMPORTANT NOTES!
+MY QUESTION IS: 
+
+`oh so i'm changing the stdout file to be the output.txt file right ?`
+
+ChatGPT said:
+
+Exactly! 🎯
+
+  When you redirect stdout to output.txt, you are essentially telling the program:
+
+    "Hey, instead of sending all the output meant for the terminal (stdout) to the screen, send it to this file (output.txt) instead."
+
+In technical terms:
+
+    You're not "changing" the output.txt file itself.
+    Instead, you're making stdout (file descriptor 1) point to output.txt so that any program output written to stdout ends up in output.txt.
+
+MY QUESTION IS:
+
+`okay so when i use < to redirect the stdin to point to another file, i basically take its content and pass it to the input of a specific command, and then i take the output of this command and using > i redirect the stdout to point to another file right ?`
+
+ChatGPT said:
+
+Yes, exactly! You've got it! 🎯
+
+Let’s summarize the process in clear steps:
+
+    < file: This redirects the content of file to the standard input (stdin) of the command.
+        Instead of reading input from the terminal, the command will read from the file.
+
+    Command (e.g., cmd1): This command receives the content from the file as its input (from stdin) and processes it.
+
+    | (Pipe): If there's a pipe, the output of cmd1 becomes the input for the next command (cmd2).
+
+    > file: This redirects the output of the final command (e.g., cmd2) to a file (file), instead of displaying it on the terminal.
+        The result is saved in the specified file, either overwriting it or creating it if it doesn't exist.
+
+Example for clarification:
+
+$> < input.txt grep "pattern" | sort > output.txt
+
+    < input.txt: The contents of input.txt are redirected as input to grep.
+    grep "pattern": grep looks for lines containing the word "pattern" in the input (which is the content of input.txt).
+    | sort: The lines found by grep are passed through the pipe (|) to sort, which arranges them alphabetically.
+    > output.txt: The sorted lines from sort are redirected to output.txt (instead of showing them on the terminal).
+
+In essence:
+
+    < changes input to come from a file.
+    > changes output to go into a file.
+
+This is how you can manipulate data in Unix/Linux, combining reading, processing, and saving it in a single line of code!
+
+If you need more details or examples, just let me know! 😊
