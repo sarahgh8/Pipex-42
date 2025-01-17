@@ -10,16 +10,16 @@ CFLAGS = -Wall -Wextra -Werror
 all: ${NAME}
 
 ${NAME} : ${OBJ}
-	ar rcs ${NAME} ${OBJ}
+	@ar rcs $@ $^
 
 ${OBJ} : ${SRC}
-	${CC} ${CFLAGS} -c ${SRC}
+	@${CC} ${CFLAGS} -c $^
 
 clean:
-	rm -f ${OBJ}
+	@rm -f ${OBJ}
 
 fclean : clean
-	rm -f ${NAME}
+	@rm -f ${NAME}
 
 re : fclean all
 
