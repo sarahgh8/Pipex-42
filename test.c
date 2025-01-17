@@ -1,17 +1,31 @@
-#include <stdio.h>
-#include <unistd.h>
-#include <fcntl.h>
-#include <sys/wait.h>
+#include "pipex.h"
 
-int main()
+int main(int argc, char **argv)
 {
-    int process_id = fork();
-
-    if (process_id == 0)
-        printf("this is the child process\n");
-    if (process_id > 0)
+    if(argc == 2)
     {
-        printf("this is parent\n");
+        int fd = open(argv[1], O_RDONLY, 0666);
+        if(fd == -1)
+        {
+            perror("open");
+            return 1;
+        }
+        dup2(fd, 0); // stdin is now ==> infile
+        close(fd);
+        int pid = fork();
+
+        char *args[] = {"grep", "sarah", NULL};
+        if(pid == 0)
+        {
+            execve("/bin/grep", args, NULL);
+            printf("child process\n");
+        }
+        else
+        {
+            wait(NULL);
+            printf("parent process\n");
+        }
+
     }
 
     return 0;
