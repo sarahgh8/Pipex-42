@@ -131,3 +131,13 @@ In essence:
 This is how you can manipulate data in Unix/Linux, combining reading, processing, and saving it in a single line of code!
 
 If you need more details or examples, just let me know! 😊
+
+```css
+- what happens if we fork twice:
+
+       Parent (original)
+          /     \
+   Parent'     Child1
+    /   \        /   \
+P'1    C1     P'2   C2
+```
