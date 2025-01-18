@@ -11,7 +11,7 @@ NAME = pipex
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 LFLAGS = -Llibft -lft
-SRC = main.c utils.c
+SRC = pipex.c utils.c
 OBJ_FILE = obj
 OBJ = $(addprefix $(OBJ_FILE)/, $(SRC:.c=.o))
 LIBFT = libft.a

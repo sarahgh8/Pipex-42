@@ -17,7 +17,11 @@ char *get_env_path(char **envp)
 char *validate_path(char **envp, char *cmd)
 {
     char *env_path = get_env_path(envp);
+    if(!env_path)
+        return NULL;
     char **env_paths = ft_split(env_path, ':');
+    if(!env_paths)
+        return NULL;
     int i;
 
     i = 0;
@@ -38,7 +42,6 @@ char *validate_path(char **envp, char *cmd)
         {
             if(!access(env_paths[i], R_OK | X_OK))
                 return env_paths[i];
-            // perror("");
             return NULL; // Permission denied
         }
         i++;
