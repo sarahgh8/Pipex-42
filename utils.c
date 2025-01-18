@@ -37,12 +37,11 @@ char *validate_path(char **envp, char *cmd)
         if(!access(env_paths[i], F_OK))
         {
             if(!access(env_paths[i], R_OK | X_OK))
-            {
                 return env_paths[i];
-            }
-            return NULL;
+            // perror("");
+            return NULL; // Permission denied
         }
         i++;
     }
-    return NULL;
+    return NULL; // Command not found
 }
