@@ -8,37 +8,37 @@
   - [✅] Includes `NAME`, `all`, `clean`, `fclean`, and `re` rules.
   - [✅] Uses `cc` with `-Wall`, `-Wextra`, and `-Werror` flags.
   - [✅] Does not relink unnecessarily.
-- [ ] Submit all required files: `Makefile`, `.c` files, `.h` files.
+- [✅] Submit all required files: `Makefile`, `.c` files, `.h` files.
 - [✅] Test thoroughly to ensure compliance with requirements.
 
 ## 🔨 Mandatory Part Implementation
 
 ### 1️⃣ Understand Requirements
-- [ ] Program must be executable as: `./pipex file1 cmd1 cmd2 file2`.
+- [✅] Program must be executable as: `./pipex file1 cmd1 cmd2 file2`.
 - [✅] Simulate the shell command: `< file1 cmd1 | cmd2 > file2`.
-- [ ] Use only the allowed functions:
+- [✅] Use only the allowed functions:
   - `open`, `close`, `read`, `write`, `malloc`, `free`, `perror`, `strerror`, `access`, `dup`, `dup2`, `execve`, `exit`, `fork`, `pipe`, `unlink`, `wait`, `waitpid`.
 
 ### 2️⃣ Program Structure
-- [ ] Parse command-line arguments:
-  - [ ] Validate the number of arguments.
-  - [ ] Extract `file1`, `file2`, `cmd1`, and `cmd2`.
-- [ ] Handle file operations:
-  - [ ] Open `file1` for reading.
-  - [ ] Open or create `file2` for writing with proper permissions.
+- [✅] Parse command-line arguments:
+  - [✅] Validate the number of arguments.
+  - [✅] Extract `file1`, `file2`, `cmd1`, and `cmd2`.
+- [✅] Handle file operations:
+  - [✅] Open `file1` for reading.
+  - [✅] Open or create `file2` for writing with proper permissions.
   - [ ] Handle errors during file operations (e.g., file not found, permission denied).
-- [ ] Create a pipeline:
-  - [ ] Use `pipe()` to set up communication between commands.
-  - [ ] Fork processes for `cmd1` and `cmd2`.
-  - [ ] Redirect:
+- [✅] Create a pipeline:
+  - [✅] Use `pipe()` to set up communication between commands.
+  - [✅] Fork processes for `cmd1` and `cmd2`.
+  - [✅] Redirect:
     - `cmd1`'s `stdin` from `file1` and `stdout` to the pipe.
     - `cmd2`'s `stdin` from the pipe and `stdout` to `file2`.
-- [ ] Execute commands using `execve()`:
-  - [ ] Parse commands and their arguments.
+- [✅] Execute commands using `execve()`:
+  - [✅] Parse commands and their arguments.
   - [ ] Handle command not found or execution errors.
-- [ ] Manage file descriptors:
-  - [ ] Close unused descriptors in child processes.
-  - [ ] Ensure descriptors are closed after use in the parent process.
+- [✅] Manage file descriptors:
+  - [✅] Close unused descriptors in child processes.
+  - [✅] Ensure descriptors are closed after use in the parent process.
 
 ### 3️⃣ Error Handling
 - [ ] Check return values of all system calls.
